@@ -1,7 +1,60 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import { ExternalLink, Zap, Building2, Rocket, Twitter, Instagram } from 'lucide-react';
 
 function App() {
+  const [marketCap, setMarketCap] = useState<string>('Loading...');
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Live market cap fetching
+  useEffect(() => {
+    const CHAIN = "base";
+    const PAIR = "0x5c04d21ea647d34da076d477b5f8095cee571789";
+    const ENDPOINT = `https://api.dexscreener.com/latest/dex/pairs/${CHAIN}/${PAIR}`;
+    const REFRESH_MS = 5000; // 5 second refresh
+
+    // Format number to compact form (1.23M, 4.5K, etc.)
+    function formatCompact(n: number): string {
+      if (n === null || n === undefined || isNaN(n)) return "N/A";
+      const abs = Math.abs(n);
+      if (abs >= 1e12) return (n/1e12).toFixed(2).replace(/\.00$/,"")+"T";
+      if (abs >= 1e9)  return (n/1e9 ).toFixed(2).replace(/\.00$/,"")+"B";
+      if (abs >= 1e6)  return (n/1e6 ).toFixed(2).replace(/\.00$/,"")+"M";
+      if (abs >= 1e3)  return (n/1e3 ).toFixed(1).replace(/\.0$/,"")+"K";
+      return Math.round(n).toLocaleString();
+    }
+
+    async function fetchMarketCap() {
+      try {
+        const res = await fetch(ENDPOINT, { cache: "no-store" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const json = await res.json();
+        const pair = json?.pairs?.[0];
+        // Try marketCap first, fallback to fdv
+        const mc = (pair?.marketCap ?? pair?.mcap ?? pair?.fdv ?? null);
+        if (mc !== null) {
+          setMarketCap("$" + formatCompact(Number(mc)));
+        } else {
+          setMarketCap("N/A");
+        }
+        setIsLoading(false);
+      } catch (err) {
+        console.error("Fetch MC error:", err);
+        setMarketCap("Error");
+        setIsLoading(false);
+      }
+    }
+
+    // Initial fetch
+    fetchMarketCap();
+    
+    // Set up interval for live updates
+    const interval = setInterval(fetchMarketCap, REFRESH_MS);
+    
+    // Cleanup interval on unmount
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       {/* Hero Section */}
@@ -58,9 +111,15 @@ function App() {
                 <div className="absolute inset-6 sm:inset-8 bg-gradient-to-br from-yellow-500 to-purple-500 rounded-full animate-spin-slow"></div>
                 <div className="absolute inset-8 sm:inset-12 bg-black rounded-full flex items-center justify-center">
                   <div className="text-center px-2">
-                    <div className="text-lg sm:text-xl font-bold text-yellow-400 mb-1">Goal</div>
-                    <div className="text-xl sm:text-2xl font-black text-yellow-400">$10M</div>
-                    <div className="text-xs sm:text-sm text-gray-400">Market Cap</div>
+                    <div className="text-sm sm:text-base font-bold text-yellow-400 mb-1 uppercase tracking-wider opacity-70">
+                      Market Cap
+                    </div>
+                    <div className={`text-lg sm:text-xl font-black text-yellow-400 ${isLoading ? 'animate-pulse' : ''}`}>
+                      {marketCap}
+                    </div>
+                    <div className="text-xs text-gray-400 mt-1 opacity-60">
+                      Live • Base
+                    </div>
                   </div>
                 </div>
               </div>
