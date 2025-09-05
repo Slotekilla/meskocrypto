@@ -9,38 +9,45 @@ function App() {
   // Live market cap fetching
   useEffect(() => {
     const CHAIN = "base";
-    const PAIR = "0x5c04d21ea647d34da076d477b5f8095cee571789";
-    const ENDPOINT = `https://api.dexscreener.com/latest/dex/pairs/${CHAIN}/${PAIR}`;
+    const TOKEN = "0x5c04d21ea647d34da076d477b5f8095cee571789";
+    const TOKEN_PAIRS_URL = `https://api.dexscreener.com/token-pairs/v1/${CHAIN}/${TOKEN}`;
     const REFRESH_MS = 5000; // 5 second refresh
 
     // Format number to compact form (1.23M, 4.5K, etc.)
     function formatCompact(n: number): string {
-      if (n === null || n === undefined || isNaN(n)) return "N/A";
-      const abs = Math.abs(n);
-      if (abs >= 1e12) return (n/1e12).toFixed(2).replace(/\.00$/,"")+"T";
-      if (abs >= 1e9)  return (n/1e9 ).toFixed(2).replace(/\.00$/,"")+"B";
-      if (abs >= 1e6)  return (n/1e6 ).toFixed(2).replace(/\.00$/,"")+"M";
-      if (abs >= 1e3)  return (n/1e3 ).toFixed(1).replace(/\.0$/,"")+"K";
+      if (n == null || isNaN(n)) return "N/A";
+      const a = Math.abs(n);
+      if (a >= 1e12) return (n/1e12).toFixed(2).replace(/\.00$/,"")+"T";
+      if (a >= 1e9 ) return (n/1e9 ).toFixed(2).replace(/\.00$/,"")+"B";
+      if (a >= 1e6 ) return (n/1e6 ).toFixed(2).replace(/\.00$/,"")+"M";
+      if (a >= 1e3 ) return (n/1e3 ).toFixed(1).replace(/\.0$/,"")+"K";
       return Math.round(n).toLocaleString();
     }
 
     async function fetchMarketCap() {
+      setIsLoading(true);
       try {
-        const res = await fetch(ENDPOINT, { cache: "no-store" });
+        // 1) Get all pairs for the token
+        const res = await fetch(TOKEN_PAIRS_URL, { cache: "no-store" });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const json = await res.json();
-        const pair = json?.pairs?.[0];
-        // Try marketCap first, fallback to fdv
-        const mc = (pair?.marketCap ?? pair?.mcap ?? pair?.fdv ?? null);
-        if (mc !== null) {
-          setMarketCap("$" + formatCompact(Number(mc)));
-        } else {
+        const pairs = await res.json(); // array
+
+        if (!Array.isArray(pairs) || pairs.length === 0) {
           setMarketCap("N/A");
+          return;
         }
-        setIsLoading(false);
+
+        // 2) Select the MOST LIQUID pair (most stable price/MC)
+        pairs.sort((a: any, b: any) => (b?.liquidity?.usd || 0) - (a?.liquidity?.usd || 0));
+        const best = pairs[0];
+
+        // 3) marketCap or fallback to fdv
+        const mc = best?.marketCap ?? best?.mcap ?? best?.fdv ?? null;
+        setMarketCap(mc !== null ? "$" + formatCompact(Number(mc)) : "N/A");
       } catch (err) {
         console.error("Fetch MC error:", err);
         setMarketCap("Error");
+      } finally {
         setIsLoading(false);
       }
     }
