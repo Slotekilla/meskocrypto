@@ -2,11 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile-first responsive improvements */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Improve touch targets for mobile */
+@media (max-width: 768px) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+body {
+  overflow-x: hidden;
+}
+
 /* Dexscreener Embed Styles */
 #dexscreener-embed {
   position: relative;
   width: 100%;
-  padding-bottom: 125%;
+  padding-bottom: 100%;
+}
+
+@media(min-width: 640px) {
+  #dexscreener-embed {
+    padding-bottom: 125%;
+  }
 }
 
 @media(min-width: 1400px) {
