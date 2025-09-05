@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, Zap, Building2, Rocket, Twitter } from 'lucide-react';
+import { ExternalLink, Zap, Building2, Rocket, Twitter, Instagram } from 'lucide-react';
 
 function App() {
   return (
@@ -117,6 +117,15 @@ function App() {
             >
               <Twitter size={20} />
               Follow on X
+            </a>
+            <a 
+              href="https://www.instagram.com/rok.mesko" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-pink-600 to-pink-500 text-white font-bold text-lg px-8 py-4 rounded-full hover:from-pink-500 hover:to-pink-400 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-pink-500/25"
+            >
+              <Instagram size={20} />
+              Follow on Instagram
             </a>
             <a 
               href="https://farcaster.xyz/rokmesko" 
