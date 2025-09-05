@@ -179,6 +179,93 @@ function App() {
         </div>
       </section>
 
+      {/* Utility Section */}
+      <section className="py-12 sm:py-20 px-4 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-yellow-900/10 via-purple-900/10 to-yellow-900/10"></div>
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 bg-gradient-to-r from-yellow-400 to-purple-500 bg-clip-text text-transparent">
+            $MESKO Utility
+          </h2>
+          <div className="text-center mb-8 sm:mb-12 max-w-4xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-6 px-4">
+              $MESKO isn't just about holding – it's about <span className="text-yellow-400 font-semibold">utility</span>. 
+              Our ecosystem is expanding with real-world applications that give $MESKO holders exclusive access, 
+              rewards, and opportunities.
+            </p>
+            <p className="text-base sm:text-lg text-gray-400 leading-relaxed px-4">
+              From exclusive merchandise and NFT drops to premium community features and partnership benefits – 
+              the $MESKO utility ecosystem is just getting started.
+            </p>
+          </div>
+          
+          <div className="text-center mb-8 sm:mb-12">
+            <a 
+              href="https://utility.meskobrand.eu" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-purple-600 to-yellow-500 text-white font-bold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:from-purple-500 hover:to-yellow-400 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/25 active:scale-95"
+            >
+              Explore $MESKO Utility
+              <ExternalLink size={18} className="sm:w-5 sm:h-5" />
+            </a>
+          </div>
+
+          <div className="bg-gradient-to-br from-gray-900/30 to-black/30 border border-gray-800 rounded-xl sm:rounded-2xl p-6 sm:p-8 backdrop-blur-sm">
+            <div className="text-center">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 bg-gradient-to-br from-yellow-500 to-purple-500 rounded-full flex items-center justify-center animate-pulse">
+                <Zap size={28} className="text-white sm:w-8 sm:h-8" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-yellow-400">More Utility Coming Soon!</h3>
+              <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
+                We're building an entire ecosystem around $MESKO. Every new utility launch means more demand, 
+                more adoption, and more reasons for the price to keep climbing.
+              </p>
+              <p className="text-lg sm:text-xl font-semibold bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">
+                🚀 More utility = Higher prices = Early holders win big
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Utility Section */}
+      <section className="py-12 sm:py-20 px-4 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-yellow-900/5 to-purple-900/5"></div>
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-yellow-400 to-purple-500 bg-clip-text text-transparent">
+              Unlock $MESKO Utility
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
+              Beyond the charts, $MESKO offers exclusive access, rewards, and opportunities for holders. 
+              Think merchandise, NFT drops, premium community features, and more.
+            </p>
+            <a 
+              href="https://utility.meskobrand.eu" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-purple-600 to-yellow-500 text-white font-bold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:from-purple-500 hover:to-yellow-400 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/25 active:scale-95"
+            >
+              Explore Utility
+              <ExternalLink size={18} className="sm:w-5 sm:h-5" />
+            </a>
+          </div>
+          
+          <div className="text-center bg-gradient-to-br from-gray-900/30 to-black/30 border border-gray-800 rounded-xl sm:rounded-2xl p-6 sm:p-8 backdrop-blur-sm">
+            <div className="flex items-center justify-center mb-4">
+              <Zap size={32} className="text-yellow-400 animate-pulse sm:w-10 sm:h-10" />
+            </div>
+            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-yellow-400">
+              More Utility Coming Soon!
+            </h3>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+              As utility expands, so does the value. More features, more demand, higher prices. 
+              <span className="font-semibold text-yellow-400"> Early holders win big.</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Community Section */}
       <section className="py-12 sm:py-20 px-4 relative">
         <div className="absolute inset-0 bg-gradient-to-t from-purple-900/10 to-transparent"></div>
