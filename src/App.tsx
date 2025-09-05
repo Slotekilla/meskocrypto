@@ -18,7 +18,7 @@ function App() {
             The $MESKO Movement 🚀
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-2">
-            Building the biggest empire on Zora. Join early, stay early.
+            $MESKO isn't just a coin. It's a movement. Join early, stay early.
           </p>
           <a 
             href="https://zora.co/@mesko" 
@@ -41,10 +41,15 @@ function App() {
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-yellow-400">
                 About $MESKO
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
-                $MESKO is more than a coin. It's culture, markets, and community. 
-                Born on Zora, built by early believers, and designed to grow into 
-                the biggest empire in Web3.
+              <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mb-4">
+                $MESKO isn't just a coin. It's a movement.
+              </p>
+              <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mb-4">
+                Born on Zora, powered by culture, and built by early believers.
+                We don't follow trends – we create them. $MESKO is the empire where crypto, art, and ambition collide.
+              </p>
+              <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed font-semibold">
+                This is the start of something too big to ignore.
               </p>
             </div>
             <div className="relative">
@@ -64,34 +69,40 @@ function App() {
       <section className="py-12 sm:py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-16 bg-gradient-to-r from-yellow-400 to-purple-500 bg-clip-text text-transparent">
-            Why Join Early
+            Why Join Now
           </h2>
+          <div className="text-center mb-8 sm:mb-12 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed px-4">
+              Timing is everything. Every empire has its early builders – and every bull run has its legends. 
+              $MESKO is still early, but the window won't stay open for long. The choice is simple: join now, or look back later wishing you did.
+            </p>
+          </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             <div className="text-center group">
               <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 bg-gradient-to-br from-yellow-500 to-yellow-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Zap size={28} className="text-black sm:w-8 sm:h-8" />
+                <Rocket size={28} className="text-black sm:w-8 sm:h-8" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-4 text-yellow-400">Early Access</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-4 text-yellow-400">Growth</h3>
               <p className="text-gray-300 text-base sm:text-lg">
-                Be part of the foundation of $MESKO.
+                $MESKO isn't a short play. It's built for exponential expansion.
               </p>
             </div>
             <div className="text-center group">
               <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 bg-gradient-to-br from-purple-500 to-purple-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Building2 size={28} className="text-white sm:w-8 sm:h-8" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-4 text-purple-400">Empire Builders</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-4 text-purple-400">Community</h3>
               <p className="text-gray-300 text-base sm:text-lg">
-                We don't build houses, we build empires.
+                A tribe of early believers building culture together.
               </p>
             </div>
             <div className="text-center group sm:col-span-2 md:col-span-1">
               <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 bg-gradient-to-br from-yellow-500 to-purple-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Rocket size={28} className="text-white sm:w-8 sm:h-8" />
+                <Zap size={28} className="text-white sm:w-8 sm:h-8" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">Growth Potential</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">Legacy</h3>
               <p className="text-gray-300 text-base sm:text-lg">
-                Timing is everything, and $MESKO moves fast.
+                Not just another coin. A brand, an empire, a movement.
               </p>
             </div>
           </div>
@@ -106,7 +117,7 @@ function App() {
             The MESKO Tribe
           </h2>
           <p className="text-lg sm:text-xl text-gray-300 mb-8 sm:mb-12 px-2">
-            Strong together, stronger early.
+            $MESKO is more than an investment. It's your ticket to being part of the biggest story on Zora. Early adopters don't just watch history – they write it.
           </p>
           <div className="flex flex-col gap-4 sm:gap-6 justify-center max-w-sm sm:max-w-none mx-auto">
             <a 
