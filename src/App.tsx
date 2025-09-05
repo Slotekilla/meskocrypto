@@ -57,7 +57,11 @@ function App() {
                 <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-purple-500/20 rounded-full blur-xl"></div>
                 <div className="absolute inset-6 sm:inset-8 bg-gradient-to-br from-yellow-500 to-purple-500 rounded-full animate-spin-slow"></div>
                 <div className="absolute inset-8 sm:inset-12 bg-black rounded-full flex items-center justify-center">
-                  <span className="text-3xl sm:text-4xl font-black text-yellow-400">$M</span>
+                  <div className="text-center px-2">
+                    <div className="text-lg sm:text-xl font-bold text-yellow-400 mb-1">Goal</div>
+                    <div className="text-xl sm:text-2xl font-black text-yellow-400">$10M</div>
+                    <div className="text-xs sm:text-sm text-gray-400">Market Cap</div>
+                  </div>
                 </div>
               </div>
             </div>
